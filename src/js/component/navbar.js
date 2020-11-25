@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -23,6 +24,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Logo from "../../img/logo azul.png";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import PropTypes from "prop-types";
+import teal from "@material-ui/core/colors/teal";
+import Button from "@material-ui/core/Button";
 
 const drawerWidth = 240;
 
@@ -53,7 +56,33 @@ const useStyles = makeStyles(theme => ({
 	},
 	drawer: {
 		width: drawerWidth,
-		flexShrink: 0
+		flexShrink: 0,
+		[theme.breakpoints.up("md")]: {
+			display: "none"
+		}
+	},
+	menuIcon: {
+		[theme.breakpoints.up("md")]: {
+			display: "none"
+		}
+	},
+	menuBar: {
+		position: "absolute",
+		zIndex: 1,
+		top: 15,
+		width: "100%",
+		left: "30%",
+		right: "50%",
+		margin: "0 auto",
+		[theme.breakpoints.down("sm")]: {
+			display: "none"
+		}
+	},
+	menuBarBtn: {
+		marginRight: "30px",
+		border: "none",
+		outline: "none",
+		focus: { outline: 0 }
 	},
 	drawerPaper: {
 		width: drawerWidth
@@ -112,6 +141,9 @@ export const Navbar = props => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [open, setOpen] = React.useState(false);
+	const primary = teal[700];
+	const secondary = teal[200];
+	const history = useHistory();
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -134,13 +166,38 @@ export const Navbar = props => {
 						<div className={classes.title}>
 							<Avatar src={Logo} noWrap />
 						</div>
-						<IconButton
-							aria-label="open drawer"
-							edge="end"
-							onClick={handleDrawerOpen}
-							className={clsx(open && classes.hide)}>
-							<MenuIcon />
-						</IconButton>
+						<div className={classes.menuBar}>
+							<Button onClick={e => history.push(`/`)} className={classes.menuBarBtn} color={primary}>
+								Cormineco
+							</Button>
+							<Button
+								onClick={e => history.push(`/compromiso`)}
+								className={classes.menuBarBtn}
+								color={primary}>
+								Compromiso
+							</Button>
+							<Button
+								onClick={e => history.push(`/alcance`)}
+								className={classes.menuBarBtn}
+								color={primary}>
+								Alcance
+							</Button>
+							<Button
+								onClick={e => history.push(`/contacto`)}
+								className={classes.menuBarBtn}
+								color={primary}>
+								Contacto
+							</Button>
+						</div>
+						<div className={classes.menuIcon}>
+							<IconButton
+								aria-label="open drawer"
+								edge="end"
+								onClick={handleDrawerOpen}
+								className={clsx(open && classes.hide)}>
+								<MenuIcon />
+							</IconButton>
+						</div>
 					</Toolbar>
 				</AppBar>
 			</ElevationScroll>
@@ -159,25 +216,45 @@ export const Navbar = props => {
 				</div>
 				<Divider />
 				<List>
-					<ListItem button>
+					<ListItem
+						onClick={e => {
+							history.push(`/`);
+							handleDrawerClose();
+						}}
+						button>
 						<ListItemIcon>
 							<BusinessIcon />
 						</ListItemIcon>
 						<ListItemText>Cormineco</ListItemText>
 					</ListItem>
-					<ListItem button>
+					<ListItem
+						onClick={e => {
+							history.push(`/compromiso`);
+							handleDrawerClose();
+						}}
+						button>
 						<ListItemIcon>
 							<VerifiedUserIcon />
 						</ListItemIcon>
 						<ListItemText>Compromiso</ListItemText>
 					</ListItem>
-					<ListItem button>
+					<ListItem
+						onClick={e => {
+							history.push(`/alcance`);
+							handleDrawerClose();
+						}}
+						button>
 						<ListItemIcon>
 							<TrendingUpIcon />
 						</ListItemIcon>
 						<ListItemText>Alcance</ListItemText>
 					</ListItem>
-					<ListItem button>
+					<ListItem
+						onClick={e => {
+							history.push(`/contacto`);
+							handleDrawerClose();
+						}}
+						button>
 						<ListItemIcon>
 							<ImportContactsIcon />
 						</ListItemIcon>
