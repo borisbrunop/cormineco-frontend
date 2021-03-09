@@ -49,7 +49,8 @@ const useStyles = makeStyles(theme => ({
 		marginRight: drawerWidth
 	},
 	title: {
-		flexGrow: 1
+		flexGrow: 1,
+		cursor: "pointer"
 	},
 	hide: {
 		display: "none"
@@ -80,9 +81,14 @@ const useStyles = makeStyles(theme => ({
 	},
 	menuBarBtn: {
 		marginRight: "30px",
-		border: "none",
-		outline: "none",
-		focus: { outline: 0 }
+		borderWidth: 0,
+		outline: 0,
+		"&$notchedOutline": {
+			borderWidth: 0
+		},
+		"&$focused": {
+			borderWidth: 0
+		}
 	},
 	drawerPaper: {
 		width: drawerWidth
@@ -110,7 +116,9 @@ const useStyles = makeStyles(theme => ({
 			duration: theme.transitions.duration.enteringScreen
 		}),
 		marginRight: 0
-	}
+	},
+	focused: {},
+	notchedOutline: {}
 }));
 function ElevationScroll(props) {
 	const { children, window } = props;
@@ -124,7 +132,7 @@ function ElevationScroll(props) {
 	});
 
 	return React.cloneElement(children, {
-		elevation: trigger ? 4 : 0
+		elevation: trigger ? 5 : 0
 	});
 }
 
@@ -164,7 +172,7 @@ export const Navbar = props => {
 					})}>
 					<Toolbar>
 						<div className={classes.title}>
-							<Avatar src={Logo} noWrap />
+							<Avatar onClick={e => history.push(`/`)} src={Logo} noWrap />
 						</div>
 						<div className={classes.menuBar}>
 							<Button onClick={e => history.push(`/`)} className={classes.menuBarBtn} color={primary}>
@@ -201,67 +209,69 @@ export const Navbar = props => {
 					</Toolbar>
 				</AppBar>
 			</ElevationScroll>
-			<Drawer
-				className={classes.drawer}
-				variant="persistent"
-				anchor="right"
-				open={open}
-				classes={{
-					paper: classes.drawerPaper
-				}}>
-				<div className={classes.drawerHeader}>
-					<IconButton onClick={handleDrawerClose}>
-						{theme.direction === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-					</IconButton>
-				</div>
-				<Divider />
-				<List>
-					<ListItem
-						onClick={e => {
-							history.push(`/`);
-							handleDrawerClose();
-						}}
-						button>
-						<ListItemIcon>
-							<BusinessIcon />
-						</ListItemIcon>
-						<ListItemText>Cormineco</ListItemText>
-					</ListItem>
-					<ListItem
-						onClick={e => {
-							history.push(`/compromiso`);
-							handleDrawerClose();
-						}}
-						button>
-						<ListItemIcon>
-							<VerifiedUserIcon />
-						</ListItemIcon>
-						<ListItemText>Compromiso</ListItemText>
-					</ListItem>
-					<ListItem
-						onClick={e => {
-							history.push(`/alcance`);
-							handleDrawerClose();
-						}}
-						button>
-						<ListItemIcon>
-							<TrendingUpIcon />
-						</ListItemIcon>
-						<ListItemText>Alcance</ListItemText>
-					</ListItem>
-					<ListItem
-						onClick={e => {
-							history.push(`/contacto`);
-							handleDrawerClose();
-						}}
-						button>
-						<ListItemIcon>
-							<ImportContactsIcon />
-						</ListItemIcon>
-						<ListItemText>Contacto</ListItemText>
-					</ListItem>
-				</List>
-			</Drawer>
+			<ElevationScroll {...props}>
+				<Drawer
+					className={classes.drawer}
+					variant="persistent"
+					anchor="right"
+					open={open}
+					classes={{
+						paper: classes.drawerPaper
+					}}>
+					<div className={classes.drawerHeader}>
+						<IconButton onClick={handleDrawerClose}>
+							{theme.direction === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+						</IconButton>
+					</div>
+					<Divider />
+					<List>
+						<ListItem
+							onClick={e => {
+								history.push(`/`);
+								handleDrawerClose();
+							}}
+							button>
+							<ListItemIcon>
+								<BusinessIcon />
+							</ListItemIcon>
+							<ListItemText>Cormineco</ListItemText>
+						</ListItem>
+						<ListItem
+							onClick={e => {
+								history.push(`/compromiso`);
+								handleDrawerClose();
+							}}
+							button>
+							<ListItemIcon>
+								<VerifiedUserIcon />
+							</ListItemIcon>
+							<ListItemText>Compromiso</ListItemText>
+						</ListItem>
+						<ListItem
+							onClick={e => {
+								history.push(`/alcance`);
+								handleDrawerClose();
+							}}
+							button>
+							<ListItemIcon>
+								<TrendingUpIcon />
+							</ListItemIcon>
+							<ListItemText>Alcance</ListItemText>
+						</ListItem>
+						<ListItem
+							onClick={e => {
+								history.push(`/contacto`);
+								handleDrawerClose();
+							}}
+							button>
+							<ListItemIcon>
+								<ImportContactsIcon />
+							</ListItemIcon>
+							<ListItemText>Contacto</ListItemText>
+						</ListItem>
+					</List>
+				</Drawer>
+			</ElevationScroll>
 		</div>
 	);
 };
