@@ -4,3 +4,81 @@
 .home{
     margin-top: 70px;
 }
+.MuiPaper-elevation4{
+    box-shadow: none !important;
+}
+
+#cormineco {
+    fill: transparent;
+    animation: fill 1s ease forwards 2.8s;
+}
+#compromiso {
+    fill: transparent;
+    animation: fill 1s ease forwards 2.8s;
+}
+#alcance {
+    fill: transparent;
+    animation: fill 1s ease forwards 2.8s;
+}
+#contacto {
+    fill: transparent;
+    animation: fill 1s ease forwards 2.8s;
+}
+
+@keyframes line-anim{
+    to{
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes fill{
+    to{
+        fill: black;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@350&family=Source+Code+Pro:wght@350&display=swap');
+
+h3{
+    font-family: 'Heebo', sans-serif;
+}
+
+p{
+    font-family: 'Source Code Pro', monospace;
+}
+
+@keyframes fadeRight{
+    from{
+        transform: translateX(-100px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+.imgAnim{
+    animation: fadeRight 1 ease-in forwards; 
+}
+
+#compromiso path:nth-child(1){
+    stroke-dasharray: 1736px;
+    stroke-dashoffset: 1736px;
+    animation: line-anim 12s ease forwards 1s;
+}
+#cormineco path:nth-child(1){
+    stroke-dasharray: 1507px;
+    stroke-dashoffset: 1507px;
+    animation: line-anim 12s ease forwards 1s;
+}
+#alcance path:nth-child(1){
+    stroke-dasharray: 1066px;
+    stroke-dashoffset: 1066px;
+    animation: line-anim 12s ease forwards 1s;
+}
+#contacto path:nth-child(1){
+    stroke-dasharray: 1209px;
+    stroke-dashoffset: 1209px;
+    animation: line-anim 12s ease forwards 1s;
+}
+
