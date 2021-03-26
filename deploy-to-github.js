@@ -5,7 +5,7 @@ var path = require('path');
 const envfile = require('envfile');
 var fs = require('fs');
 
-var remoteOriginUrl = 'https://github.com/borisbrunop/cormineco-frontend.git';
+var remoteOriginUrl = require('remote-origin-url');
 var gh = require('parse-github-url');
 
 if (!fs.existsSync(path.resolve(__dirname,'.git'))){
