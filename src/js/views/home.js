@@ -83,24 +83,23 @@ const useStyles = makeStyles(theme => ({
 	},
 	residuos: {
 		width: "490px",
-		height: "280px",
+		height: "403px",
 		zIndex: "-2",
 		position: "relative"
 	},
 	res: {
 		position: "relative",
-		right: "-130px",
-		top: "-70px",
-		width: "65%",
-		overflowX: "hidden"
+		right: "-110px",
+		top: "-99px",
+		zIndex: "-2"
 	},
 	resSqr: {
 		width: "360px",
 		position: "absolute",
-		height: "450px",
+		height: "570px",
 		bottom: "-820px",
 		right: "0px",
-		overflowX: "hidden"
+		overflow: "hidden"
 	},
 	circleCompromiso: {
 		width: "340px",
@@ -109,16 +108,16 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #FFFFFF",
 		borderRadius: "50%",
 		zIndex: "1",
-		top: "75px",
+		top: "-200px",
 		right: "-75px",
 		position: "relative"
 	},
 	sqCompromiso: {
 		width: "330px",
-		height: "300px",
+		height: "340px",
 		background: "rgba(161, 178, 178, 0.5)",
 		position: "absolute",
-		top: "20px",
+		top: "118px",
 		right: "0",
 		zIndex: "-3"
 	},
@@ -195,15 +194,17 @@ const useStyles = makeStyles(theme => ({
 		cursor: "pointer"
 	},
 	contacto: {
-		width: "98%",
-		height: "100%"
-	},
-	positionContacto: {
-		position: "absolute",
-		bottom: "-1430px",
 		width: "100%",
-		height: "200px"
+		height: "200px",
+		position: "absolute",
+		bottom: "-1500px"
 	},
+	// positionContacto: {
+	// 	position: "absolute",
+	// 	bottom: "-1430px",
+	// 	width: "100%",
+	// 	height: "200px"
+	// },
 	rectangle: {
 		zIndex: "-3",
 		position: "absolute",
@@ -214,13 +215,13 @@ const useStyles = makeStyles(theme => ({
 		color: "#E5DAB8",
 		fontSize: "35px",
 		position: "absolute",
-		top: "30px",
+		top: "0px",
 		right: "10px"
 	},
 	pContacto: {
 		color: "#E5DAB8",
 		position: "absolute",
-		top: "75px",
+		top: "65px",
 		left: "10px",
 		marginRight: "10px",
 		fontSize: "10px",
@@ -252,99 +253,102 @@ export const Home = () => {
 	const history = useHistory();
 
 	return (
-		<div className={"flex-column home " + classes.div}>
-			<div className="mr-4">
-				<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
-					<CorminecoSVG />
+		<>
+			<div className={"flex-column home " + classes.div}>
+				<div className="mr-4">
+					<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
+						<CorminecoSVG />
+					</div>
+					<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
+						<CompromisoSVG />
+					</div>
+					<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
+						<AlcanceSVG />
+					</div>
+					<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
+						<ContactoSVG />
+					</div>
 				</div>
-				<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
-					<CompromisoSVG />
-				</div>
-				<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
-					<AlcanceSVG />
-				</div>
-				<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
-					<ContactoSVG />
-				</div>
-			</div>
-			<div className={classes.ambienteDiv}>
+				{/* <div className={classes.ambienteDiv}> */}
 				<img src={ambiente} className={"imgAnim  " + classes.ambiente} />
-
-				<div className={classes.circleCormineco}>
-					<h3 className={classes.titleCormineco}>CORMINECO</h3>
-					<p className={classes.pCormineco}>
-						Conoce a fondo nuestra misión, visión, valores y la forma en que manejamos las situaciones como
-						una compañía de gran excelencia.
-					</p>
-					<p onClick={e => history.push(`/cormineco`)} className={classes.infoCormineco}>
-						Ver mas ...
-					</p>
-					<div className={classes.sqCormineco} />
-				</div>
 			</div>
-			<div className={classes.residuoDiv}>
+
+			<div className={classes.circleCormineco}>
+				<h3 className={classes.titleCormineco}>CORMINECO</h3>
+				<p className={classes.pCormineco}>
+					Conoce a fondo nuestra misión, visión, valores y la forma en que manejamos las situaciones como una
+					compañía de gran excelencia.
+				</p>
+				<p onClick={e => history.push(`/cormineco`)} className={classes.infoCormineco}>
+					Ver mas ...
+				</p>
+				<div className={classes.sqCormineco} />
+			</div>
+			{/* </div> */}
+			{/* <div className={classes.residuoDiv}> */}
+			<div className={classes.resSqr}>
 				<div className={classes.res}>
 					<img src={residuos} className={classes.residuos} />
 				</div>
-				<div className={classes.resSqr}>
-					<div className={classes.circleCompromiso}>
-						<h3 className={classes.titleCompromiso}>COMPROMISO</h3>
-						<p className={classes.pCompromiso}>
-							Exigimos la concientización de la responsabilidad que se conlleva con las personas, los
-							clientes, la sostenibilidad, la gestión ambiental, los resultados, entre otros.
-						</p>
-						<p onClick={e => history.push(`/compromiso`)} className={classes.infoCompromiso}>
-							Ver mas ...
-						</p>
-					</div>
-					<div className={classes.sqCompromiso} />
-				</div>
-			</div>
-			<div className={classes.suelosDiv}>
-				<img src={suelos} className={classes.suelos} />
-				<div className={classes.circleSuelos}>
-					<h3 className={classes.titleSuelos}>ALCANCE</h3>
-					<p className={classes.pSuelos}>
-						Demostrarle al mundo de qué esta hecho Cormineco, todos los proyectos que se pueden alcanzar
-						trabajando con nosotros, nuestras especialidades, el equipo de soporte, proyectos ambientales,
-						cuerpos de agua y más.
+				<div className={classes.circleCompromiso}>
+					<h3 className={classes.titleCompromiso}>COMPROMISO</h3>
+					<p className={classes.pCompromiso}>
+						Exigimos la concientización de la responsabilidad que se conlleva con las personas, los
+						clientes, la sostenibilidad, la gestión ambiental, los resultados, entre otros.
 					</p>
-					<p onClick={e => history.push(`/cormineco`)} className={classes.infoSuelos}>
+					<p onClick={e => history.push(`/compromiso`)} className={classes.infoCompromiso}>
 						Ver mas ...
 					</p>
-					<div className={classes.sqSuelos} />
 				</div>
-				<div className={classes.contacto}>
-					<div className={classes.positionContacto}>
-						<svg
-							className={classes.rectangle}
-							width="375"
-							height="210"
-							viewBox="0 0 375 210"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg">
-							<path d="M0 64L377 0V210H189.251H0V64Z" fill="#09233A" />
-						</svg>
-						<h3 className={classes.titleContacto}>CONTACTO</h3>
-						<p className={classes.pContacto}>
-							Dirección: Av Oeste. Esquina Principal A Conde. Edif Ambos Mundos. Piso 3. Local 04. Urb
-							Catedral Caracas. Distrito Capital. Zona postal 1010.
-						</p>
-						<div className={classes.social}>
-							<IconButton aria-label="mail">
-								<MailOutlineIcon className={classes.socialColor} />
-							</IconButton>
-							<IconButton aria-label="instagram">
-								<InstagramIcon className={classes.socialColor} />
-							</IconButton>
-							<IconButton aria-label="faceboock">
-								<FacebookIcon className={classes.socialColor} />
-							</IconButton>
-						</div>
-						<p className={classes.footerContacto}>Corporación Ecológica CORMINECO C.A. 2016</p>
+				<div className={classes.sqCompromiso} />
+			</div>
+			{/* </div> */}
+			{/* <div className={classes.suelosDiv}> */}
+			<img src={suelos} className={classes.suelos} />
+			<div className={classes.circleSuelos}>
+				<h3 className={classes.titleSuelos}>ALCANCE</h3>
+				<p className={classes.pSuelos}>
+					Demostrarle al mundo de qué esta hecho Cormineco, todos los proyectos que se pueden alcanzar
+					trabajando con nosotros, nuestras especialidades, el equipo de soporte, proyectos ambientales,
+					cuerpos de agua y más.
+				</p>
+				<p onClick={e => history.push(`/cormineco`)} className={classes.infoSuelos}>
+					Ver mas ...
+				</p>
+				<div className={classes.sqSuelos} />
+			</div>
+			{/* </div> */}
+			<div className={classes.contacto}>
+				<div className="positionContacto">
+					{/* <svg
+						className={classes.rectangle}
+						width="375"
+						height="210"
+						viewBox="0 0 375 210"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 64L377 0V210H189.251H0V64Z" fill="#09233A" />
+					</svg> */}
+					<h3 className={classes.titleContacto}>CONTACTO</h3>
+					<p className={classes.pContacto}>
+						Dirección: Av Oeste. Esquina Principal A Conde. Edif Ambos Mundos. Piso 3. Local 04. Urb
+						Catedral Caracas. Distrito Capital. Zona postal 1010.
+					</p>
+					<div className={classes.social}>
+						<IconButton aria-label="mail">
+							<MailOutlineIcon className={classes.socialColor} />
+						</IconButton>
+						<IconButton aria-label="instagram">
+							<InstagramIcon className={classes.socialColor} />
+						</IconButton>
+						<IconButton aria-label="faceboock">
+							<FacebookIcon className={classes.socialColor} />
+						</IconButton>
 					</div>
+					<p className={classes.footerContacto}>Corporación Ecológica CORMINECO C.A. 2016</p>
 				</div>
 			</div>
-		</div>
+			{/* </div> */}
+		</>
 	);
 };
