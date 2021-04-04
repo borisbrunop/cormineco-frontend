@@ -4,7 +4,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
 	svg: {
-		cursor: "pointer"
+		cursor: "pointer",
+		[theme.breakpoints.up("md")]: {
+			width: "466px !important",
+			height: "62px !important"
+		},
+		[theme.breakpoints.up("sm")]: {
+			width: "410px",
+			height: "42px"
+		}
 	}
 }));
 

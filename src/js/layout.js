@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { Home } from "./views/home/home";
 import { Compromiso } from "./views/compromiso";
 import { Alcance } from "./views/alcance";
 import { Contacto } from "./views/contacto";

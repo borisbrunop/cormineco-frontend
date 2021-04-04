@@ -62,7 +62,11 @@ const useStyles = makeStyles(theme => ({
 	},
 	logoSize: {
 		width: theme.spacing(7),
-		height: theme.spacing(7)
+		height: theme.spacing(7),
+		[theme.breakpoints.up("md")]: {
+			width: theme.spacing(9),
+			height: theme.spacing(9)
+		}
 	},
 	hide: {
 		display: "none"

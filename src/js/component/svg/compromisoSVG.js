@@ -4,7 +4,15 @@ import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
 	svg: {
-		cursor: "pointer"
+		cursor: "pointer",
+		[theme.breakpoints.up("md")]: {
+			width: "531px !important",
+			height: "62px !important"
+		},
+		[theme.breakpoints.up("sm")]: {
+			width: "455px",
+			height: "42px"
+		}
 	}
 }));
 
