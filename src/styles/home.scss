@@ -1,9 +1,6 @@
 .test {
     height: 3000px;
 }
-.home{
-    margin-top: 70px;
-}
 .MuiPaper-elevation4{
     box-shadow: none !important;
 }
@@ -113,7 +110,7 @@ p{
     z-index: -1;
     top: 0;
     transform-origin: right top;
-    transform: skewY(-4deg);
+    transform: skewY(-7deg);
 }
 .sqCorminecoLgDeg::after {
     content: '';

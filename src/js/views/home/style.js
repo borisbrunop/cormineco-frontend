@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	menu: {
 		[theme.breakpoints.up("sm")]: {
-			marginTop: "150px"
+			marginTop: "10px"
 		}
 	},
 	ambiente: {
@@ -38,10 +38,10 @@ const useStyles = makeStyles(theme => ({
 	ambienteLg: {
 		position: "absolute",
 		bottom: "-349px",
-		left: "-463px",
+		left: "-410px",
 		zIndex: "0",
-		width: "935px",
-		height: "600px",
+		width: "855px",
+		height: "520px",
 		display: "none",
 		[theme.breakpoints.up("md")]: {
 			display: "flex"

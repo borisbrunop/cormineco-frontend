@@ -10,7 +10,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Cormineco } from "./views/cormineco";
+import { Cormineco } from "./views/cormineco/cormineco";
 
 //create your first component
 const Layout = () => {
