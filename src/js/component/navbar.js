@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useHistory, useLocation } from "react-router-dom";
@@ -28,6 +28,7 @@ import teal from "@material-ui/core/colors/teal";
 import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
 import Fade from "react-reveal/Fade";
+import { Context } from "../store/appContext";
 
 const drawerWidth = 240;
 
@@ -170,6 +171,7 @@ export const Navbar = props => {
 	const secondary = teal[200];
 	const history = useHistory();
 	const location = useLocation();
+	const { store, actions } = useContext(Context);
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -181,6 +183,7 @@ export const Navbar = props => {
 
 	return (
 		<>
+			{store.loading}
 			{location.pathname === "/" ? (
 				<div className={classes.root}>
 					<CssBaseline />
