@@ -23,6 +23,10 @@ export const Home = () => {
 	const history = useHistory();
 	const { store, actions } = useContext(Context);
 
+	useEffect(() => {
+		actions.getimages("inicio");
+	}, []);
+
 	return (
 		<>
 			{store.loadingInicio ? (

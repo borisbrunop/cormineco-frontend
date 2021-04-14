@@ -22,40 +22,30 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 	const { store, actions } = useContext(Context);
 
-	useEffect(() => {
-		actions.getimages("inicio");
-	}, []);
-
 	return (
 		<BrowserRouter>
 			<ScrollToTop>
-				{store.loadingInicio ? (
-					<>
-						<Navbar />
-						<Switch>
-							<Route exact path="/">
-								<Home />
-							</Route>
-							<Route exact path="/cormineco">
-								<Cormineco />
-							</Route>
-							<Route exact path="/alcance">
-								<Alcance />
-							</Route>
-							<Route exact path="/contacto">
-								<Contacto />
-							</Route>
-							<Route exact path="/compromiso">
-								<Compromiso />
-							</Route>
-							<Route>
-								<h1>Not found!</h1>
-							</Route>
-						</Switch>
-					</>
-				) : (
-					<Spinner />
-				)}
+				<Navbar />
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route exact path="/cormineco">
+						<Cormineco />
+					</Route>
+					<Route exact path="/alcance">
+						<Alcance />
+					</Route>
+					<Route exact path="/contacto">
+						<Contacto />
+					</Route>
+					<Route exact path="/compromiso">
+						<Compromiso />
+					</Route>
+					<Route>
+						<h1>Not found!</h1>
+					</Route>
+				</Switch>
 			</ScrollToTop>
 		</BrowserRouter>
 	);

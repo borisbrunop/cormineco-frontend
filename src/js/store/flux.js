@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// setStore({
 				// 	loadingInicio: false
 				// });
-				let res = await Axios.post("https://cormineco.herokuapp.com/images", json, {
+				await Axios.post("https://cormineco.herokuapp.com/images", json, {
 					headers: {
 						"Content-Type": "application/json"
 					}

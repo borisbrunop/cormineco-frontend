@@ -29,6 +29,7 @@ import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
 import Fade from "react-reveal/Fade";
 import { Context } from "../store/appContext";
+import Spinner from "./spinner";
 
 const drawerWidth = 240;
 
@@ -183,7 +184,6 @@ export const Navbar = props => {
 
 	return (
 		<>
-			{store.loading}
 			{location.pathname === "/" ? (
 				<div className={classes.root}>
 					<CssBaseline />
