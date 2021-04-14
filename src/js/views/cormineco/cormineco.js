@@ -13,11 +13,47 @@ export const Cormineco = () => {
 	const [visionShow, setVisionShow] = useState(false);
 	const [valoresShow, setValoresShow] = useState(false);
 	const [misionShow, setMisionShow] = useState(false);
+	const [loadingCormineco, setLoadingCormineco] = useState(false);
+	const [misionImg, setMisionImg] = useState("");
 	const classes = useStyles();
 	const { store, actions } = useContext(Context);
 
+	const getImages = async folder => {
+		const baseUrl = "https://cormineco.herokuapp.com/";
+		try {
+			await fetch(`${baseUrl}/images`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/JSON"
+				},
+				body: JSON.stringify({
+					folder
+				})
+			}).then(async response => {
+				let res = await response.json();
+				if (response.ok) {
+					if (folder === "cormineco") {
+						res.map(image => {
+							if (image.name === "mision_j66ent") {
+								setMisionImg(image.image_url);
+							}
+						});
+						setLoadingCormineco(true);
+					}
+				}
+				if (response.status === 400 || response.status === 400) {
+					console.error("something failed");
+					console.error(response.statusText);
+				}
+			});
+		} catch (error) {
+			console.log("something failed");
+			console.log(error);
+		}
+	};
+
 	useEffect(() => {
-		actions.getImages("cormineco");
+		getImages("cormineco");
 	}, []);
 
 	const handleVision = () => {
@@ -32,11 +68,11 @@ export const Cormineco = () => {
 
 	return (
 		<>
-			{store.loadingCormineco ? (
+			{loadingCormineco ? (
 				<>
 					<div className={classes.corminecoDiv + " d-flex justify-content-center"}>
 						<h3 className={classes.corminecoTitle}>CORMINECO</h3>
-						<img src={store.misionImg} className={classes.misionImg} />
+						<img src={misionImg} className={classes.misionImg} />
 					</div>
 					<div className={classes.infoCorminecoDiv + " prueba d-flex justify-content-center"}>
 						<div className={classes.cicleOverflow + " d-flex justify-content-center"}>
