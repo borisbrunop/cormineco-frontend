@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	appBarInicio: {
 		backgroundColor: "transparent",
-		marginTop: "10px"
+		marginTop: "5px"
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
@@ -190,14 +190,14 @@ export const Navbar = props => {
 					<AppBar position="top" className={classes.appBarInicio}>
 						<Toolbar>
 							<div className={classes.title}>
-								<Fade duration={1000} delay={500} distance="30px">
-									<Avatar
-										onClick={e => history.push(`/`)}
-										src={Logo}
-										className={classes.logoSize}
-										noWrap
-									/>
-								</Fade>
+								{/* <Fade duration={1000} delay={500} distance="30px"> */}
+								<Avatar
+									onClick={e => history.push(`/`)}
+									src={Logo}
+									className={classes.logoSize}
+									noWrap
+								/>
+								{/* </Fade> */}
 							</div>
 						</Toolbar>
 					</AppBar>
@@ -213,14 +213,14 @@ export const Navbar = props => {
 							})}>
 							<Toolbar>
 								<div className={classes.title}>
-									<Fade duration={1000} delay={500} distance="30px">
-										<Avatar
-											onClick={e => history.push(`/`)}
-											src={Logo}
-											className={classes.logoSize}
-											noWrap
-										/>
-									</Fade>
+									{/* <Fade duration={1000} delay={500} distance="30px"> */}
+									<Avatar
+										onClick={e => history.push(`/`)}
+										src={Logo}
+										className={classes.logoSize}
+										noWrap
+									/>
+									{/* </Fade> */}
 								</div>
 								<div className={classes.menuBar}>
 									<Button

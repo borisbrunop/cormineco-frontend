@@ -1,4 +1,26 @@
 
-h3{
-    font-family: 'Heebo', sans-serif;
+
+// .prueba:nth-child(2){
+//     flex: column;
+// }
+@keyframes animationHIn{
+    100%{
+        transform: translateX(30px);
+        }
+}
+@keyframes animationHOut{
+    0%{
+        transform: translateX(30px);
+        }
+    100%{
+        transform: translateX(0px);
+        }
+}
+
+.animationHeadersIn{
+    animation: animationHIn 0.4s forwards 0s ease-in;
+}
+
+.animationHeadersOut{
+    animation: animationHOut 0.4s forwards 0s ease-in;
 }

@@ -11,19 +11,19 @@ html{
 
 #cormineco {
     fill: transparent;
-    animation: fill 1.5s ease forwards 3.5s;
+    animation: fill 1.5s ease forwards 2.5s;
 }
 #compromiso {
     fill: transparent;
-    animation: fill 1.5s ease forwards 3.5s;
+    animation: fill 1.5s ease forwards 2.5s;
 }
 #alcance {
     fill: transparent;
-    animation: fill 1.5s ease forwards 3.5s;
+    animation: fill 1.5s ease forwards 2.5s;
 }
 #contacto {
     fill: transparent;
-    animation: fill 1.5s ease forwards 3.5s;
+    animation: fill 1.5s ease forwards 2.5s;
 }
 
 @keyframes line-anim{
@@ -38,36 +38,26 @@ html{
     }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@350&family=Source+Code+Pro:wght@350&display=swap');
-
-h3{
-    font-family: 'Heebo', sans-serif;
-}
-
-p{
-    font-family: 'Source Code Pro', monospace;
-}
 
 #compromiso path:nth-child(1){
     stroke-dasharray: 1736px;
     stroke-dashoffset: 1736px;
-    animation: line-anim 12s ease forwards 2s;
+    animation: line-anim 12s ease forwards 1s;
 }
 #cormineco path:nth-child(1){
     stroke-dasharray: 1507px;
     stroke-dashoffset: 1507px;
-    animation: line-anim 12s ease forwards 2s;
+    animation: line-anim 12s ease forwards 1s;
 }
 #alcance path:nth-child(1){
     stroke-dasharray: 1066px;
     stroke-dashoffset: 1066px;
-    animation: line-anim 12s ease forwards 2s;
+    animation: line-anim 12s ease forwards 1s;
 }
 #contacto path:nth-child(1){
     stroke-dasharray: 1209px;
     stroke-dashoffset: 1209px;
-    animation: line-anim 12s ease forwards 2s;
+    animation: line-anim 12s ease forwards 1s;
 }
 
 // div contacto 
@@ -121,7 +111,7 @@ p{
     z-index: -1;
     top: 0;
     transform-origin: left bottom;
-    transform: skewY(-4deg);
+    transform: skewY(-7deg);
 }
 .sqCompromisoLgDeg:before {
     content: '';

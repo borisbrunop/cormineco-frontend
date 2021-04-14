@@ -236,6 +236,7 @@ const useStyles = makeStyles(theme => ({
 		height: "570px",
 		bottom: "-820px",
 		right: "0px",
+		zIndex: "-2",
 		overflow: "hidden",
 		[theme.breakpoints.up("sm")]: {
 			width: "550px",
@@ -289,7 +290,7 @@ const useStyles = makeStyles(theme => ({
 		width: "100%",
 		height: "450px",
 		position: "absolute",
-		bottom: "-1160px",
+		bottom: "-1185px",
 		right: "0",
 		zIndex: "-3",
 		display: "none",
@@ -329,7 +330,7 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	titleCompromiso: {
-		color: "#005151",
+		color: "#212529",
 		marginTop: "50px",
 		marginLeft: "48px",
 		fontSize: "35px",
