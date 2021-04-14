@@ -17,7 +17,7 @@ export const Cormineco = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
-		actions.getimages("cormineco");
+		actions.getImages("cormineco");
 	}, []);
 
 	const handleVision = () => {

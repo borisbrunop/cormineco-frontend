@@ -13,7 +13,6 @@ const custome = createMuiTheme({
 		}
 	}
 });
-console.log(custome);
 
 const useStyles = makeStyles(theme => ({
 	root: {

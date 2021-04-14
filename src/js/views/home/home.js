@@ -24,7 +24,7 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
-		actions.getimages("inicio");
+		actions.getImages("inicio");
 	}, []);
 
 	return (
