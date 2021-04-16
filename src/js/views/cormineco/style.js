@@ -150,7 +150,9 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: "50px",
 		marginTop: "95px",
 		[theme.breakpoints.down(custome.breakpoints.values.lgCellphone)]: {
-			marginTop: "20px"
+			marginTop: "80px",
+			marginRight: "70px",
+			marginLeft: "70px"
 		}
 	},
 	heading: {
@@ -182,22 +184,25 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: "50%",
 		position: "relative",
 		top: "0px",
-		right: "0px"
+		right: "25px"
+	},
+	visionInfoDiv: {
+		position: "relative",
+		top: "160px",
+		right: "10px",
+		zIndex: "1",
+		textAlign: "right"
 	},
 	visionInfo: {
 		color: "#006666",
 		fontSize: "14px",
-		textAlign: "right",
-		position: "relative",
-		top: "98px",
-		marginLeft: "72px",
-		marginRight: "335px"
+		marginLeft: "75px"
 	},
 	visionImg: {
-		width: "110%",
+		width: "140%",
 		position: "relative",
-		top: "110px",
-		left: "-100px"
+		bottom: "410px",
+		left: "-20px"
 	},
 	valoresHeader: {
 		backgroundColor: "#EDE8D8",
@@ -229,7 +234,7 @@ const useStyles = makeStyles(theme => ({
 		paddingLeft: "50px"
 	},
 	confianzaCircle: {
-		width: "500px",
+		width: "600px",
 		height: "500px",
 		background: "rgba(255, 255, 255, 0.5)",
 		border: "1px solid #FFFFFF",
@@ -240,8 +245,11 @@ const useStyles = makeStyles(theme => ({
 		textAlign: "left"
 	},
 	confianzaInfoDiv: {
-		marginTop: "40px",
-		marginLeft: "135px"
+		position: "relative",
+		top: "95px",
+		left: "15px",
+		width: "100%",
+		textAlign: "left"
 	},
 	confianzaTitle: {
 		fontSize: "25px",
@@ -256,7 +264,7 @@ const useStyles = makeStyles(theme => ({
 	valoresImg: {
 		width: "165%",
 		position: "relative",
-		top: "200px",
+		top: "130px",
 		left: "-105px",
 		zIndex: "1"
 	},
@@ -268,37 +276,39 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: "50%",
 		position: "relative",
 		right: "0px",
-		top: "30px",
-		zIndex: "3"
+		top: "-380px",
+		zIndex: "1"
 	},
 	excInfoDiv: {
 		position: "relative",
-		top: "45px",
-		right: "220px",
+		top: "20px",
+		right: "0px",
 		background: "rgba(233, 225, 203, 0.5)",
-		height: "124px",
-		paddingTop: "15px",
-		textAlign: "right"
+		height: "110px",
+		paddingTop: "12px",
+		textAlign: "right",
+		zIndex: "2"
 	},
 	excTitle: {
 		fontSize: "25px",
 		color: "#09233A",
 		fontWeight: "500",
-		marginRight: "18px"
+		marginRight: "15px"
 	},
 	excInfo: {
 		fontSize: "14px",
 		color: "#09233A",
-		paddingLeft: "310px",
-		marginRight: "18px"
+		paddingLeft: "60px",
+		marginRight: "15px"
 	},
 	sosInfoDiv: {
 		position: "relative",
-		top: "90px",
-		left: "30px",
+		top: "65px",
+		left: "20px",
 		height: "124px",
 		paddingTop: "15px",
-		textAlign: "left"
+		textAlign: "left",
+		zIndex: "2"
 	},
 	sosTitle: {
 		fontSize: "25px",
@@ -309,27 +319,26 @@ const useStyles = makeStyles(theme => ({
 	sosInfo: {
 		fontSize: "14px",
 		color: "#006666",
-		marginRight: "220px"
+		marginRight: "20px"
 	},
 	innInfoDiv: {
 		position: "relative",
-		top: "120px",
-		right: "220px",
+		top: "70px",
+		right: "15px",
 		height: "124px",
 		paddingTop: "15px",
-		textAlign: "right"
+		textAlign: "right",
+		zIndex: "2"
 	},
 	innTitle: {
 		fontSize: "25px",
 		color: "#006666",
-		fontWeight: "500",
-		marginRight: "18px"
+		fontWeight: "500"
 	},
 	innInfo: {
 		fontSize: "14px",
 		color: "#006666",
-		paddingLeft: "310px",
-		marginRight: "18px"
+		paddingLeft: "40px"
 	},
 	misionHeader: {
 		backgroundColor: "rgba(233, 225, 203)",

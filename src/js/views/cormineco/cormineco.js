@@ -77,13 +77,14 @@ export const Cormineco = () => {
 						<Collapse in={visionShow}>
 							<Paper elevation={0}>
 								<div className={classes.visionDiv}>
-									<div className={classes.circleVision}>
+									<div className={classes.visionInfoDiv}>
 										<p className={classes.visionInfo}>
 											Ser una organización líder en adquisición, transformación y comercialización
 											de recursos naturales en la República Bolivariana de Venezuela.
 										</p>
-										<img src={store.visionImg} className={classes.visionImg} />
 									</div>
+									<div className={classes.circleVision} />
+									<img src={store.visionImg} className={classes.visionImg} />
 								</div>
 							</Paper>
 						</Collapse>
@@ -103,39 +104,39 @@ export const Cormineco = () => {
 										</p>
 									</div>
 
-									<div className={classes.confianzaCircle}>
-										<div className={classes.confianzaInfoDiv}>
-											<h3 className={classes.confianzaTitle}>CONFIANZA</h3>
-											<p className={classes.confianzaInfo}>
-												Seguridad de los accionistas y el equipo, en todos nuestros compromisos
-												y acciones.
-											</p>
-										</div>
+									<div className={classes.confianzaCircle} />
+									<div className={classes.confianzaInfoDiv}>
+										<h3 className={classes.confianzaTitle}>CONFIANZA</h3>
+										<p className={classes.confianzaInfo}>
+											Seguridad de los accionistas y el equipo, en todos nuestros compromisos y
+											acciones.
+										</p>
 									</div>
+									{/* </div> */}
 									<img src={store.valoresImg} className={classes.valoresImg} />
-									<div className={classes.excCircle}>
-										<div className={classes.excInfoDiv}>
-											<h3 className={classes.excTitle}>EXCELENCIA</h3>
-											<p className={classes.excInfo}>
-												En la forma que desarrollamos nuestras operaciones y en la calidad de
-												los resultados.
-											</p>
-										</div>
-										<div className={classes.sosInfoDiv}>
-											<h3 className={classes.sosTitle}>SOSTENIBILIDAD</h3>
-											<p className={classes.sosInfo}>
-												Enfocados en mejorar la calidad de vida de las generaciones actuales y
-												futuras.
-											</p>
-										</div>
-										<div className={classes.innInfoDiv}>
-											<h3 className={classes.innTitle}>INNOVACIÓN</h3>
-											<p className={classes.innInfo}>
-												Con la intención de crear nuevas alternativas en las diversas áreas en
-												las que actuamos.
-											</p>
-										</div>
+									<div className={classes.excInfoDiv}>
+										<h3 className={classes.excTitle}>EXCELENCIA</h3>
+										<p className={classes.excInfo}>
+											En la forma que desarrollamos nuestras operaciones y en la calidad de los
+											resultados.
+										</p>
 									</div>
+									<div className={classes.sosInfoDiv}>
+										<h3 className={classes.sosTitle}>SOSTENIBILIDAD</h3>
+										<p className={classes.sosInfo}>
+											Enfocados en mejorar la calidad de vida de las generaciones actuales y
+											futuras.
+										</p>
+									</div>
+									<div className={classes.innInfoDiv}>
+										<h3 className={classes.innTitle}>INNOVACIÓN</h3>
+										<p className={classes.innInfo}>
+											Con la intención de crear nuevas alternativas en las diversas áreas en las
+											que actuamos.
+										</p>
+									</div>
+									<div className={classes.excCircle} />
+									{/* </div> */}
 								</div>
 							</Paper>
 						</Collapse>
