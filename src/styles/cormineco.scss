@@ -3,6 +3,10 @@
 // .prueba:nth-child(2){
 //     flex: column;
 // }
+p{
+    margin-bottom: 0px !important;
+}
+
 @keyframes animationHIn{
     100%{
         transform: translateX(30px);
@@ -18,9 +22,13 @@
 }
 
 .animationHeadersIn{
+    font-size: 40px;
+    margin-bottom: 0px;
     animation: animationHIn 0.4s forwards 0s ease-in;
 }
 
 .animationHeadersOut{
+    font-size: 40px;
+    margin-bottom: 0px;
     animation: animationHOut 0.4s forwards 0s ease-in;
 }

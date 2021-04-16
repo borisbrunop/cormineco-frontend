@@ -24,55 +24,13 @@ export const Home = () => {
 	const [ambienteImg, setAmbienteImg] = useState("");
 	const [loadingInicio, setLoadingInicio] = useState(false);
 
-	const getImages = async folder => {
-		const baseUrl = "https://cormineco.herokuapp.com/";
-		try {
-			await fetch(`${baseUrl}/images`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/JSON"
-				},
-				body: JSON.stringify({
-					folder
-				})
-			}).then(async response => {
-				let res = await response.json();
-				if (response.ok) {
-					if (folder === "inicio") {
-						res.map(image => {
-							if (image.name === "residuos_waru5q") {
-								setResiduosImg(image.image_url);
-							}
-							if (image.name === "suelos_habcp9") {
-								setSuelosImg(image.image_url);
-							}
-							if (image.name === "ambiente_jsgxwh") {
-								setAmbienteImg(image.image_url);
-							}
-						});
-						setLoadingInicio({
-							loadingInicio: true
-						});
-					}
-				}
-				if (response.status === 400 || response.status === 400) {
-					console.error("something failed");
-					console.error(response.statusText);
-				}
-			});
-		} catch (error) {
-			console.log("something failed");
-			console.log(error);
-		}
-	};
-
 	useEffect(() => {
-		getImages("inicio");
+		actions.getImages("inicio");
 	}, []);
 
 	return (
 		<>
-			{loadingInicio ? (
+			{store.loadingInicio ? (
 				<>
 					<div className={"flex-column home " + classes.div}>
 						<div className={"mr-3 " + classes.menu}>
@@ -90,8 +48,8 @@ export const Home = () => {
 							</div>
 						</div>
 						{/* <div className={classes.ambienteDiv}> */}
-						<img src={ambienteImg} className={classes.ambiente} />
-						<img src={ambienteImg} className={classes.ambienteLg} />
+						<img src={store.ambienteImg} className={classes.ambiente} />
+						<img src={store.ambienteImg} className={classes.ambienteLg} />
 					</div>
 
 					<div className={classes.circleCormineco}>
@@ -135,12 +93,12 @@ export const Home = () => {
 					{/* <div className={classes.residuoDiv}> */}
 					<div className={classes.resSqrLg}>
 						<div className={classes.resLg}>
-							<img src={residuosImg} className={classes.residuosLg} />
+							<img src={store.residuosImg} className={classes.residuosLg} />
 						</div>
 					</div>
 					<div className={classes.resSqr}>
 						<div className={classes.res}>
-							<img src={residuosImg} className={classes.residuos} />
+							<img src={store.residuosImg} className={classes.residuos} />
 						</div>
 						<div className={classes.circleCompromiso}>
 							<h3 className={classes.titleCompromiso}>COMPROMISO</h3>
@@ -181,8 +139,8 @@ export const Home = () => {
 					</div>
 					{/* </div> */}
 					{/* <div className={classes.suelosDiv}> */}
-					<img src={suelosImg} className={classes.suelos} />
-					<img src={suelosImg} className={classes.suelosLg} />
+					<img src={store.suelosImg} className={classes.suelos} />
+					<img src={store.suelosImg} className={classes.suelosLg} />
 					<div className={classes.circleSuelos}>
 						<h3 className={classes.titleSuelos}>ALCANCE</h3>
 						<p className={classes.pSuelos}>

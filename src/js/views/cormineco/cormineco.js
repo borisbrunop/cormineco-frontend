@@ -18,42 +18,8 @@ export const Cormineco = () => {
 	const classes = useStyles();
 	const { store, actions } = useContext(Context);
 
-	const getImages = async folder => {
-		const baseUrl = "https://cormineco.herokuapp.com/";
-		try {
-			await fetch(`${baseUrl}/images`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/JSON"
-				},
-				body: JSON.stringify({
-					folder
-				})
-			}).then(async response => {
-				let res = await response.json();
-				if (response.ok) {
-					if (folder === "cormineco") {
-						res.map(image => {
-							if (image.name === "mision_j66ent") {
-								setMisionImg(image.image_url);
-							}
-						});
-						setLoadingCormineco(true);
-					}
-				}
-				if (response.status === 400 || response.status === 400) {
-					console.error("something failed");
-					console.error(response.statusText);
-				}
-			});
-		} catch (error) {
-			console.log("something failed");
-			console.log(error);
-		}
-	};
-
 	useEffect(() => {
-		getImages("cormineco");
+		actions.getImages("cormineco");
 	}, []);
 
 	const handleVision = () => {
@@ -68,13 +34,13 @@ export const Cormineco = () => {
 
 	return (
 		<>
-			{loadingCormineco ? (
+			{store.loadingCormineco ? (
 				<>
 					<div className={classes.corminecoDiv + " d-flex justify-content-center"}>
 						<h3 className={classes.corminecoTitle}>CORMINECO</h3>
-						<img src={misionImg} className={classes.misionImg} />
+						<img src={store.topImg} className={classes.topImg} />
 					</div>
-					<div className={classes.infoCorminecoDiv + " prueba d-flex justify-content-center"}>
+					<div className={classes.infoCorminecoDiv + " d-flex justify-content-center"}>
 						<div className={classes.cicleOverflow + " d-flex justify-content-center"}>
 							<div className={classes.sqCormineco}>
 								<div className={classes.circleCormineco + " d-flex flex-column"}>
@@ -102,7 +68,7 @@ export const Cormineco = () => {
 						</div>
 					</div>
 
-					<div className={"text-center mt-4"}>
+					<div className={"text-center"}>
 						<div onClick={handleVision} className={"d-flex " + classes.visionHeader}>
 							<div className={"d-flex justify-content-start align-items-center " + classes.headers}>
 								<h3 className={visionShow ? "animationHeadersIn" : "animationHeadersOut"}>Vision</h3>
@@ -111,7 +77,13 @@ export const Cormineco = () => {
 						<Collapse in={visionShow}>
 							<Paper elevation={0}>
 								<div className={classes.visionDiv}>
-									<div className={classes.circleVision} />
+									<div className={classes.circleVision}>
+										<p className={classes.visionInfo}>
+											Ser una organización líder en adquisición, transformación y comercialización
+											de recursos naturales en la República Bolivariana de Venezuela.
+										</p>
+										<img src={store.visionImg} className={classes.visionImg} />
+									</div>
 								</div>
 							</Paper>
 						</Collapse>
@@ -123,8 +95,47 @@ export const Cormineco = () => {
 						<Collapse in={valoresShow}>
 							<Paper elevation={0}>
 								<div className={classes.valoresDiv}>
-									<h3>React Reveal</h3>
-									<div className={classes.sqValores} />
+									<div className={classes.iniciativaDiv}>
+										<h3 className={classes.iniciativaTitle}>INICIATIVA</h3>
+										<p className={classes.iniciativaInfo}>
+											Manifestada a través de los comportamientos y actitudes de nuestros
+											empleados.
+										</p>
+									</div>
+
+									<div className={classes.confianzaCircle}>
+										<div className={classes.confianzaInfoDiv}>
+											<h3 className={classes.confianzaTitle}>CONFIANZA</h3>
+											<p className={classes.confianzaInfo}>
+												Seguridad de los accionistas y el equipo, en todos nuestros compromisos
+												y acciones.
+											</p>
+										</div>
+									</div>
+									<img src={store.valoresImg} className={classes.valoresImg} />
+									<div className={classes.excCircle}>
+										<div className={classes.excInfoDiv}>
+											<h3 className={classes.excTitle}>EXCELENCIA</h3>
+											<p className={classes.excInfo}>
+												En la forma que desarrollamos nuestras operaciones y en la calidad de
+												los resultados.
+											</p>
+										</div>
+										<div className={classes.sosInfoDiv}>
+											<h3 className={classes.sosTitle}>SOSTENIBILIDAD</h3>
+											<p className={classes.sosInfo}>
+												Enfocados en mejorar la calidad de vida de las generaciones actuales y
+												futuras.
+											</p>
+										</div>
+										<div className={classes.innInfoDiv}>
+											<h3 className={classes.innTitle}>INNOVACIÓN</h3>
+											<p className={classes.innInfo}>
+												Con la intención de crear nuevas alternativas en las diversas áreas en
+												las que actuamos.
+											</p>
+										</div>
+									</div>
 								</div>
 							</Paper>
 						</Collapse>
@@ -136,10 +147,32 @@ export const Cormineco = () => {
 						<Collapse in={misionShow}>
 							<Paper elevation={0}>
 								<div className={classes.misionDiv}>
-									<h3>React Reveal</h3>
+									<div className={classes.circleMision} />
+									<div className={classes.misionInfoDiv}>
+										<p className={classes.misionInfo}>
+											Ser una organización líder en adquisición, transformación y comercialización
+											de recursos naturales en la República Bolivariana de Venezuela.
+										</p>
+										<img src={store.misionImg} className={classes.misionImg} />
+									</div>
 								</div>
 							</Paper>
 						</Collapse>
+					</div>
+					<div className={classes.BottomInfoCorminecoDiv}>
+						<div className={classes.bottomCicleOverflow}>
+							<div className={classes.bottomSqCormineco}>
+								<div className={classes.BottomCircleCormineco}>
+									<p className={classes.BottomInfoCormineco}>
+										En este contexto, es prioridad la innovación y mejora continua de los procesos
+										que nos permitan profundizar la calidad de nuestros servicios. Generamos
+										alianzas con proveedores estableciendo relaciones a largo plazo, con el fin de
+										crecer juntos para darle un valor agregado a nuestras operaciones de servicios.
+									</p>
+									<img src={store.bottomImg} className={classes.bottomImg} />
+								</div>
+							</div>
+						</div>
 					</div>
 				</>
 			) : (

@@ -553,7 +553,7 @@ const useStyles = makeStyles(theme => ({
 	footerContacto: {
 		color: "#E5DAB8",
 		position: "absolute",
-		bottom: "0px",
+		bottom: "10px",
 		left: "50%",
 		transform: "translateX(-50%)",
 		fontSize: "10px",
