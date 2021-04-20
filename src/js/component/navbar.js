@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		display: "flex"
 	},
+	hidden: {
+		display: "none"
+	},
 	appBar: {
 		backgroundColor: "rgba(250, 250, 250, 0.9)",
 		transition: theme.transitions.create(["margin", "width"], {
@@ -203,7 +206,12 @@ export const Navbar = props => {
 					</AppBar>
 				</div>
 			) : (
-				<div className={classes.root}>
+				<div
+					className={
+						location.pathname === "/admin" || location.pathname === "/adminD"
+							? classes.hidden
+							: classes.root
+					}>
 					<CssBaseline />
 					<ElevationScroll {...props}>
 						<AppBar
@@ -268,7 +276,7 @@ export const Navbar = props => {
 					</ElevationScroll>
 					<ElevationScroll {...props}>
 						<Drawer
-							className={classes.drawer}
+							className={location.pathname === "/admin" ? classes.hidden : classes.drawer}
 							variant="persistent"
 							anchor="right"
 							open={open}

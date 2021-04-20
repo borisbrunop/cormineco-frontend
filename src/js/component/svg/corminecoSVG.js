@@ -24,7 +24,7 @@ const corminecoSVG = () => {
 		<>
 			<svg
 				id="cormineco"
-				onClick={e => history.push(`/cormineco`)}
+				// onClick={e => history.push(`/cormineco`)}
 				className={classes.svg}
 				width="233"
 				height="31"

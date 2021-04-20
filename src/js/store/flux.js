@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { auth } from "./firebase";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -12,12 +13,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			topImg: "",
 			bottomImg: "",
 			loadingInicio: false,
-			loadingCormineco: false
+			loadingCormineco: false,
+			adminUserAuth: "",
+			msg: ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+			loginAdmin: async pass => {
+				setStore({ msg: "" });
+				return auth
+					.signInWithEmailAndPassword("jbruno8@gmail.com", pass)
+					.then(function(response) {
+						auth.onAuthStateChanged(user => {
+							setStore({ adminUserAuth: user });
+						});
+					})
+					.catch(function(error) {
+						setStore({ msg: "ERROR" });
+					});
+			},
+			logout: () => {
+				return auth.signOut();
+				setStore({ adminUserAuth: "" });
+			},
+			authCheck: () => {
+				const unSubscribe = auth.onAuthStateChanged(user => {
+					setStore({ adminUserAuth: user.uid });
+				});
+				return unSubscribe;
 			},
 			getImages: async folder => {
 				let json = JSON.stringify({ folder: folder });

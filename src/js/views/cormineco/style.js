@@ -298,7 +298,7 @@ const useStyles = makeStyles(theme => ({
 	excInfo: {
 		fontSize: "14px",
 		color: "#09233A",
-		paddingLeft: "60px",
+		paddingLeft: "80px",
 		marginRight: "15px"
 	},
 	sosInfoDiv: {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home/home";
@@ -12,8 +12,11 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Cormineco } from "./views/cormineco/cormineco";
 import { Context } from "./store/appContext";
+import { Admin } from "./views/admin/admin";
+import PrivateRoute from "./PrivateRoute";
 
 import Spinner from "../js/component/spinner";
+import AdminDashboard from "./views/admin/adminDashboard";
 
 //create your first component
 const Layout = () => {
@@ -41,6 +44,12 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/compromiso">
 						<Compromiso />
+					</Route>
+					<Route exact path="/admin">
+						<Admin />
+					</Route>
+					<Route exact path="/adminD">
+						{store.adminUserAuth ? <AdminDashboard /> : <Redirect to="/admin" />}
 					</Route>
 					<Route>
 						<h1>Not found!</h1>

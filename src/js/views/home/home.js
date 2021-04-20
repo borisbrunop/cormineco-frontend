@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../../../styles/home.scss";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CorminecoSVG from "../../component/svg/corminecoSVG.js";
 import CompromisoSVG from "../../component/svg/compromisoSVG";
 import AlcanceSVG from "../../component/svg/alcanceSVG";
@@ -23,10 +23,15 @@ export const Home = () => {
 	const [suelosImg, setSuelosImg] = useState("");
 	const [ambienteImg, setAmbienteImg] = useState("");
 	const [loadingInicio, setLoadingInicio] = useState(false);
+	const cormineco = useRef();
 
 	useEffect(() => {
 		actions.getImages("inicio");
 	}, []);
+
+	const handleScroll = id => {
+		window.scrollTo(id.offsetTop);
+	};
 
 	return (
 		<>
@@ -35,7 +40,9 @@ export const Home = () => {
 					<div className={"flex-column home " + classes.div}>
 						<div className={"mr-3 " + classes.menu}>
 							<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
-								<CorminecoSVG />
+								<Link to={{ hash: "#corminecoIntern" }}>
+									<CorminecoSVG />
+								</Link>
 							</div>
 							<div className={"mb-3 d-flex justify-content-end align-content-center " + classes.divSvg}>
 								<CompromisoSVG />
@@ -53,7 +60,9 @@ export const Home = () => {
 					</div>
 
 					<div className={classes.circleCormineco}>
-						<h3 className={classes.titleCormineco}>CORMINECO</h3>
+						<h3 id="corminecoIntern" ref={cormineco} className={classes.titleCormineco}>
+							CORMINECO
+						</h3>
 						<p className={classes.pCormineco}>
 							Conoce a fondo nuestra misión, visión, valores y la forma en que manejamos las situaciones
 							como una compañía de gran excelencia.
@@ -194,7 +203,9 @@ export const Home = () => {
 									<FacebookIcon className={classes.socialColor} />
 								</IconButton>
 							</div>
-							<p className={classes.footerContacto}>Corporación Ecológica CORMINECO C.A. 2016</p>
+							<Link to="/admin">
+								<p className={classes.footerContacto}>Corporación Ecológica CORMINECO C.A. 2016</p>
+							</Link>
 						</div>
 					</div>
 				</>

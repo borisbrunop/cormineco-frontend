@@ -4,7 +4,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import "../../styles/footer.scss";
-import { useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Context } from "../store/appContext";
 
@@ -95,7 +95,12 @@ export const Footer = () => {
 			) : (
 				<>
 					<div className={store.loadingCormineco ? classes.contacto : classes.hidden}>
-						<div className={"positionContacto " + classes.rectangle}>
+						<div
+							className={
+								location.pathname === "/admin"
+									? classes.hidden
+									: "positionContacto " + classes.rectangle
+							}>
 							<h3 className={classes.titleContacto}>CONTACTO</h3>
 							<p className={classes.pContacto}>
 								Dirección: Av Oeste. Esquina Principal A Conde. Edif Ambos Mundos. Piso 3. Local 04. Urb
@@ -112,7 +117,9 @@ export const Footer = () => {
 									<FacebookIcon className={classes.socialColor} />
 								</IconButton>
 							</div>
-							<p className={classes.footerContacto}>Corporación Ecológica CORMINECO C.A. 2016</p>
+							<Link to="admin">
+								<p className={classes.footerContacto}>Corporación Ecológica CORMINECO C.A. 2016</p>
+							</Link>
 						</div>
 					</div>
 				</>
